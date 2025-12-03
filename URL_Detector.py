@@ -121,7 +121,7 @@ def trainModel(csv_file="Preprocessed_Dataset.csv"):
     # analyzer="char_wb": Look at character sequences
     # ngram_range=(2,4): Use 2-character, 3-character, and 4-character sequences
     # min_df=5: Use patterns that appear in 5 or more URLs
-    count_vector = TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4), min_df=5)
+    count_vector = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 6), min_df=5)
 
     # Fit the tfidf only on the training URLs and transform both train and test
     x_train_vec = count_vector.fit_transform(x_train)
