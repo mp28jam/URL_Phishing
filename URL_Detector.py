@@ -177,9 +177,12 @@ def trainModel(csv_file="Preprocessed_Dataset.csv"):
     func_totaltime = func_end - func_start
     print(f"Program runtime is {func_totaltime} seconds")
 
-    # Save trained model and the vectorizer
+    # Save trained model, vectorizer, and metrics
     joblib.dump(MLmodel, "trained_model.joblib")
     joblib.dump(count_vector, "vectorizer.joblib")
+    joblib.dump(train_time, "train_time.joblib")
+    joblib.dump(accuracy_number, "accuracy.joblib")
+    joblib.dump(classification_report(y_test, y_pred, target_names=["Malicious", "Not Malicious"]), "class_report.joblib")
 
 # ===============================================================
 # function URLpredict()
@@ -189,9 +192,12 @@ def trainModel(csv_file="Preprocessed_Dataset.csv"):
 
 def URLpredict(url):
 
-    #Load the model and vectorizer
+    # Load the model, vectorizer, and eval metrics
     MLmodel = joblib.load("trained_model.joblib")
     count_vector = joblib.load("vectorizer.joblib")
+    training_time = joblib.load("train_time.joblib")
+    accuracy = joblib.load("accuracy.joblib")
+    class_report = joblib.load("class_report.joblib")
 
     # Convert URL to numeric features
     url_vec = count_vector.transform([url])
@@ -209,10 +215,11 @@ def URLpredict(url):
     elif prediction == 1:
         print("URL HAS A HIGH CHANCE OF BEING NOT MALICIOUS")
 
+    return accuracy, training_time, class_report, prediction
 
 def main():
-    dataset_preprocess()                          
-    trainModel()                                  
+    #dataset_preprocess()                          
+    #trainModel()                                  
     URLpredict("http://www.example.com/login")
     URLpredict("http://www.secure-login-bank.com/verify?id=12345")
     URLpredict("http://www.facebook.com")
