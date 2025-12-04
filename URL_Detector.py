@@ -195,10 +195,12 @@ def URLpredict(url):
     # Load the model, vectorizer, and eval metrics
     MLmodel = joblib.load("trained_model.joblib")
     count_vector = joblib.load("vectorizer.joblib")
-    training_time = joblib.load("train_time.joblib")
-    accuracy = joblib.load("accuracy.joblib")
+    loaded_training_time = joblib.load("train_time.joblib")
+    loaded_accuracy = joblib.load("accuracy.joblib")
     class_report = joblib.load("class_report.joblib")
 
+    accuracy = round(loaded_accuracy, 2)
+    training_time = round(loaded_training_time, 2)
     # Convert URL to numeric features
     url_vec = count_vector.transform([url])
     extra_features = extract_url_features(pd.DataFrame({"URL": [url]}))
@@ -210,10 +212,10 @@ def URLpredict(url):
     prediction = MLmodel.predict(final_features)[0]
 
     if prediction == 0:
-        print("URL HAS A HIGH CHANCE OF BEING MALICIOUS")
+        prediction = "URL HAS A HIGH CHANCE OF BEING MALICIOUS"
 
     elif prediction == 1:
-        print("URL HAS A HIGH CHANCE OF BEING NOT MALICIOUS")
+        prediction = "URL HAS A HIGH CHANCE OF BEING NOT MALICIOUS"
 
     return accuracy, training_time, class_report, prediction
 
