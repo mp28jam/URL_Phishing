@@ -1,0 +1,129 @@
+/* ========================
+   General Body Styles
+   ======================== */
+body.backgroundStyle {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ========================
+   Navbar/Header
+   ======================== */
+header.navbarStyle {
+    width: 100%;
+    background-color: #4CAF50;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ========================
+   Main Container
+   ======================== */
+div.mainBodyStyle {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 400px;
+    margin-top: 100px; /* leave space for navbar */
+    text-align: center;
+}
+
+/* ========================
+   Headers and Text
+   ======================== */
+h1.bodyText, h2.bodyText {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+pre.bodyText {
+    font-size: 16px;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre.resultText {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f; /* red for warning */
+    background: #f9f2f4;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ========================
+   Form Styles
+   ======================== */
+form.formStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input.inputStyle {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button.buttonStyle {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.buttonStyle:hover {
+    background-color: #45a049;
+}
+
+.resultsContainer {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media (max-width: 500px) {
+    div.mainBodyStyle {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input.inputStyle {
+        width: 100%;
+    }
+}
