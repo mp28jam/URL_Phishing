@@ -15,7 +15,11 @@
             <pre class="bodyText">Accuracy Score: {{accuracy}}</pre>
             <pre class="bodyText">Training Time: {{training_time}} seconds</pre>
             <pre class="bodyText">Entered URL: {{url}}</pre>
-            <pre class="resultText">Prediction Result: {{prediction}}</pre>
+            {% if predicting_factor == 0 %}
+                <pre class="resultText-Malicious">Prediction Result: {{prediction}}</pre>
+            {% elif predicting_factor == 1 %}
+                <pre class="resultText-notMalicious">Prediction Result: {{prediction}}</pre>
+            {% endif %}
                 <h2 class="bodyText">Classification Report</h2>
                 <pre class="classReport">{{class_report}}</pre>
         <h2 class="bodyText">Enter a URL to Check</h2>

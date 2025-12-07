@@ -61,7 +61,7 @@ pre.bodyText {
     word-wrap: break-word;
 }
 
-pre.resultText {
+pre.resultText-Malicious {
     font-size: 18px;
     font-weight: bold;
     color: #d9534f; /* red for warning */
@@ -74,6 +74,18 @@ pre.resultText {
     word-wrap: break-word;
 }
 
+pre.resultText-notMalicious {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3ba81f; /* green for non-malicious result */
+    background: #f9f2f4;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 /* ========================
    Form Styles
    ======================== */

@@ -29,9 +29,11 @@ def predict():
     # The URL that users type in
     url = request.form["url_input"]
     # Predict if URL is malicious using trained model
-    accuracy, training_time, class_report, prediction = URLpredict(url)
+    accuracy, training_time, class_report, prediction, predicting_factor = URLpredict(url)
     # Load index.html with the result
-    return render_template("index.html", accuracy=accuracy, training_time=training_time, class_report=class_report, prediction=prediction, url=url)
+    return render_template("index.html", accuracy=accuracy, training_time=training_time, 
+                           class_report=class_report, prediction=prediction, 
+                           predicting_factor=predicting_factor, url=url)
 
 # Run the program
 if __name__=='__main__':

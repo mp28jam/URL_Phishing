@@ -209,15 +209,15 @@ def URLpredict(url):
     final_features = hstack([url_vec, extra_features])
 
     # Make prediction using the model
-    prediction = MLmodel.predict(final_features)[0]
+    predicting_factor = MLmodel.predict(final_features)[0]
 
-    if prediction == 0:
-        prediction = "URL HAS A HIGH CHANCE OF BEING MALICIOUS"
+    if predicting_factor == 0:
+        prediction = "Warning: This URL appears to be malicious ⚠️"
 
-    elif prediction == 1:
-        prediction = "URL HAS A HIGH CHANCE OF BEING NOT MALICIOUS"
+    elif predicting_factor == 1:
+        prediction = "This URL appears to be safe ✅"
 
-    return accuracy, training_time, class_report, prediction
+    return accuracy, training_time, class_report, prediction, predicting_factor
 
 def main():
     #dataset_preprocess()                          
